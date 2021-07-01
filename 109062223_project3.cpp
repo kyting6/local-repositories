@@ -335,10 +335,8 @@ void write_valid_spot(std::ofstream& fout) {
         OthelloBoard next(board,next_valid_spots,player);
         next.put_disc(next_valid_spots[i]);
         int value=0;
-        if(next.disc_count[0]==13) value=minimax(next,13,alpha,beta,3-player);
-        else if(next.disc_count[0]==11)value=minimax(next,11,alpha,beta,3-player);
-         else if(next.disc_count[0]==9)value=minimax(next,9,alpha,beta,3-player);
-          else if(next.disc_count[0]==7)value=minimax(next,7,alpha,beta,3-player);
+        if(next.disc_count[0]<=13) value=minimax(next,13,alpha,beta,3-player);
+       
            else value=minimax(next,5,alpha,beta,3-player);
         if(value>alpha) alpha=value,index=i;
     }
