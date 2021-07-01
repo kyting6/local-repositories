@@ -250,14 +250,14 @@ int evaluate(OthelloBoard s)
 {
     int val=0;
     int state_value[8][8]={
-    65,  -3, 6, 4, 4, 6, -3,  65,
+   0,  -3, 6, 4, 4, 6, -3,  0,
     -3, -29, 3, 1, 1, 3, -29, -3,
      6,   3, 5, 3, 3, 5,  3,   6,
      4,   1, 3, 1, 1, 3,  1,   4, 
      4,   1, 3, 1, 1, 3,  1,   4,
      6,   3, 5, 3, 3, 5,  3,   6, 
     -3, -29, 3, 1, 1, 3, -29, -3,  
-    65,  -3, 6, 4, 4, 6,  -3, 65,
+    0,  -3, 6, 4, 4, 6,  -3, 0,
     };
     for(int i=0;i<8;i++)
     {
@@ -336,7 +336,6 @@ void write_valid_spot(std::ofstream& fout) {
         next.put_disc(next_valid_spots[i]);
         int value=0;
         if(next.disc_count[0]<=13) value=minimax(next,13,alpha,beta,3-player);
-       
            else value=minimax(next,5,alpha,beta,3-player);
         if(value>alpha) alpha=value,index=i;
     }
